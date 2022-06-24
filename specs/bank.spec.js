@@ -16,7 +16,7 @@ const { test, expect } = require('@playwright/test');
     const sentenceButton = "#loan-application-btn";
     const listApplications = ".description-car";
 
-test.only('Авторизоваться демо пользователем', async ({page}) => {
+test('Авторизоваться демо пользователем', async ({page}) => {
     await page.goto('https://idemo.bspb.ru/')
     await page.click(loginButton);
     await page.click(loginOtpButton);        
@@ -24,7 +24,7 @@ test.only('Авторизоваться демо пользователем', as
     await expect(welcomeText).toContainText('Hello World!');
 });
 
-test('Выполнить выход из профиля демо пользователя', async ({page}) => {
+/* test('Выполнить выход из профиля демо пользователя', async ({page}) => {
     await page.goto('https://idemo.bspb.ru/')
     await page.click(loginButton);
     await page.click(loginOtpButton);
@@ -52,7 +52,7 @@ test('Проверить переход на главную страницу', a
     await expect(homeText).toContainText('View all personal offers'); 
 });
 
-/* test('Ознокомиться с предложениями по кредитам', async ({page}) => {
+test('Ознокомиться с предложениями по кредитам', async ({page}) => {
     await page.goto('https://idemo.bspb.ru/')
     await page.click(loginButton);
     await page.click(loginOtpButton);
@@ -74,4 +74,4 @@ test('Проверить открытие нового счета', async ({page
     await page.waitForSelector(loc.newAccount);
     const previousText = await page.textContent(loc.newAccount);
     assert.strictEqual(previousText, 'Открыт новый счёт для операций в RUB, номер счёта:', 'Новый счет не открыт' );
-}); */
+}); */ 
