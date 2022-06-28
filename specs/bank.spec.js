@@ -14,7 +14,7 @@ const { test, expect } = require('@playwright/test');
     const homePageText = "[id='show-all-offers']";
     const creditButton = "#loans";
     const sentenceButton = "#loan-application-btn";
-    const listApplications = ".description-car";
+    const offerList = ".page-header";
 
 test('Авторизоваться демо пользователем', async ({page}) => {
     await page.goto('https://idemo.bspb.ru/')
@@ -24,7 +24,7 @@ test('Авторизоваться демо пользователем', async (
     await expect(welcomeText).toContainText('Hello World!');
 });
 
-/* test('Выполнить выход из профиля демо пользователя', async ({page}) => {
+test('Выполнить выход из профиля демо пользователя', async ({page}) => {
     await page.goto('https://idemo.bspb.ru/')
     await page.click(loginButton);
     await page.click(loginOtpButton);
@@ -56,14 +56,13 @@ test('Ознокомиться с предложениями по кредита
     await page.goto('https://idemo.bspb.ru/')
     await page.click(loginButton);
     await page.click(loginOtpButton);
-    await page.click(creditButton);
+    await page.click(creditButton); 
     await page.click(sentenceButton);
-    await page.waitForSelector(listApplications);
-    const listApplicationsText = await page.textContent(loc.listApplications);
-    assert.strictEqual(listApplicationsText, 'Автокредит на новый автомобиль', 'Переход к предложениями по кредитам не выполнен' );
+    const locator = page.locator(offerList);
+    await expect(locator).toBeVisible();
 });
 
-test('Проверить открытие нового счета', async ({page}) => {
+test.only('Проверить открытие нового счета', async ({page}) => {
     await page.goto('https://idemo.bspb.ru/')
     await page.click(loginButton);
     await page.click(loginOtpButton);
@@ -71,7 +70,6 @@ test('Проверить открытие нового счета', async ({page
     await page.click(openAccountButton);
     await page.click(checkbox);
     await page.click(openAccountButton2);
-    await page.waitForSelector(loc.newAccount);
-    const previousText = await page.textContent(loc.newAccount);
-    assert.strictEqual(previousText, 'Открыт новый счёт для операций в RUB, номер счёта:', 'Новый счет не открыт' );
-}); */ 
+    const locator = page.locator(newAccount);
+    await expect(locator).toBeVisible();
+});  
