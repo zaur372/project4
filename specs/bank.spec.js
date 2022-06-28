@@ -62,7 +62,7 @@ test('Ознокомиться с предложениями по кредита
     await expect(locator).toBeVisible();
 });
 
-test.only('Проверить открытие нового счета', async ({page}) => {
+test('Проверить открытие нового счета', async ({page}) => {
     await page.goto('https://idemo.bspb.ru/')
     await page.click(loginButton);
     await page.click(loginOtpButton);
