@@ -1,6 +1,5 @@
-const { test, expect } = require('@playwright/test');
-    const usernameField = "[name='username']";
-    const passwordField = "[name='password']";
+/* const { test, expect } = require('@playwright/test');
+
     const loginButton = "#login-button";
     const loginOtpButton = "#login-otp-button";
     const welcome = "#user-greeting";
@@ -73,3 +72,4 @@ test('Проверить открытие нового счета', async ({page
     const locator = page.locator(newAccount);
     await expect(locator).toBeVisible();
 });  
+ */
